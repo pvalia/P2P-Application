@@ -464,9 +464,10 @@ void downloadContent(char contentName[], char address[]){
 		fprintf(stderr, "ERROR: Can't create a TCP socket\n");
 		exit(1);
 	}
-    bzero((char *)&server, sizeof(struct sockaddr_in));
-	server.sin_family = AF_INET;
-	server.sin_port = htons(serverPort);
+    bzero((char *)&server, sizeof(struct sockaddr_in));//Clear memory; ready to store info about server's address
+	server.sin_family = AF_INET;//Set address family
+	server.sin_port = htons(serverPort);//Set server port
+	//Attempt to retrive the content server's info
 	if (hp = gethostbyname(serverHost))
         bcopy(hp->h_addr, (char *)&server.sin_addr, hp->h_length);
 	else if (inet_aton(serverHost, (struct in_addr *) &server.sin_addr) ){
