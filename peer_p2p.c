@@ -657,10 +657,10 @@ int main(int argc, char **argv){
                     case 'S'://Proceed to download
                         packetS.type = readPacket[0];
                         for(j = 0; j < sizeof(readPacket); j++){
-                            if (j < 10){
-                                packetS.peerName[j] = readPacket[j+1]; // 1 to 10
+                            if (j < 10){//Copy data
+                                packetS.peerName[j] = readPacket[j+1]; //1 to 10; readPacket -> peername
                             }
-                            packetS.contentNameOrAddress[j] = readPacket[j+11]; // 11 to 100
+                            packetS.contentNameOrAddress[j] = readPacket[j+11]; //11 to 100; readPacket -> contentname/address
                         }
                         downloadContent(userInput, packetS.contentNameOrAddress);
                         break;
