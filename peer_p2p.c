@@ -199,13 +199,16 @@ void registerContent(char contentName[]){
 		fprintf(stderr, "ERROR: Can't create a TCP socket\n");
 		exit(1);
 	}
+    //Initialize server structure
     bzero((char *)&server, sizeof(struct sockaddr_in));
 	server.sin_family = AF_INET;
 	server.sin_port = htons(0);
 	server.sin_addr.s_addr = htonl(INADDR_ANY);
-	bind(s_tcp, (struct sockaddr *)&server, sizeof(server));
+	bind(s_tcp, (struct sockaddr *)&server, sizeof(server));//Bind sockete to a local address
+    //Get local socket name(host&port)
     alen = sizeof(struct sockaddr_in);
     getsockname(s_tcp, (struct sockaddr *)&server, &alen);
+    //Convert to string
     snprintf(tcp_host, sizeof(tcp_host), "%d", server.sin_addr.s_addr);
     snprintf(tcp_port, sizeof(tcp_port), "%d", htons(server.sin_port));
 
