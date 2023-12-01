@@ -369,6 +369,33 @@ void deregisterContent(char contentName[], int q){
 	printf("----------------------------------------------\n");
     printf("De-registering Content\n");
 	printf("\n");
+	// Removes the content from the list of locally registered content
+        if (!q) {
+        // Find the content index
+        int contentIndex = -1;
+        int i;
+	for (i = 0; i < numOfLocalContent; i++) {
+            if (strcmp(localContentName[i], contentName) == 0) {
+                contentIndex = i;
+                break;
+            }
+        }
+
+        if (contentIndex != -1) {
+            // Delete the file associated with the content
+            if (remove(contentName) != 0) {
+                perror("Error deleting the file");
+            } else {
+                printf("File %s deleted successfully.\n", contentName);
+            }
+
+            removeFromLocalContent(contentName);
+        } else {
+            printf("Error, the requested content name was not found in the list:\n");
+            printf("    Content Name: %s\n\n", contentName);
+        }
+    }
+    read(s_udp, &readPacket, sizeof(readPacket));
 }
 
 /*-----List Locally Registered Content-----*/
