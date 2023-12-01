@@ -645,7 +645,7 @@ int main(int argc, char **argv){
                     case 'E'://Error
                         j = 1;
                         packetE.type = readPacket[0];
-                        while(readPacket[j] != '\0'){ 
+                        while(readPacket[j] != '\0'){//Copy error message
                             packetE.errMsg[j-1] = readPacket[j];
                             j++;
                         }
