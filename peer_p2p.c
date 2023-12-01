@@ -481,8 +481,6 @@ void downloadContent(char contentName[], char address[]){
 	}
 	printf("----------------------------------------------\n");
     fprintf(stderr, "Successfully connected to server at address: %s:%d\n", serverHost, serverPort);
-	printf("----------------------------------------------\n");
-	fprintf(stderr, "Successfully downloaded content\n");
 	fprintf(stderr, "\n");
 
     struct  D_pdu    packetD;
