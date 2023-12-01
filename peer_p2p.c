@@ -436,7 +436,7 @@ void pingIndexFor(char contentName[]){
     write(s_udp, &sendPacket, sizeof(sendPacket.type)+sizeof(sendPacket.data));
 }
 
-/*-----Download Content*/
+/*-----Download Content-----*/
 void downloadContent(char contentName[], char address[]){  
     struct 	sockaddr_in server;
     struct	hostent		*hp;
