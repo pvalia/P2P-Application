@@ -1,8 +1,15 @@
 # P2P-Application
+For our Computer Networks course, we created a Peer-to-Peer Application. It consists of peers who can exchange content among themselves through the index server. The communication between the index server and a peer is based on UDP and the content download is based on TCP.
 
-For our Computer Networks course we created a Peer to Peer Application. It consists of peers who can exchange content among themselves through the index server. The communication between the index server and a peer is based on UDP and the content download is based on TCP.
+## Features
+- **R**: Content Registration
+- **T**: Content De-Registration
+- **O**: List of On-Line Registration Content
+- **L**: List all Registered Content
+- **D**: Content Download
+- **Q**: Quit and De-Register all content
 
-## Demo
+# Demo
 
 In the example below, peer1 registers several files: test1.txt, test2.txt, and test3.txt. The index server receives a confirmation (R-type PDU) and makes sure there are no other peers with the same name. Then, it sent an acknowledgment (A-type PDU) to confirm the registration. Additionally, you can see that each piece of content registered by the peer has its own separate TCP socket since the Port numbers are different.
 
